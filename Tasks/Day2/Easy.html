@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+        function greet(name)
+        {
+            document.write("Hello, " + name);
+        }
+        greet("Dhruv Baldha");
+
+        document.write("<br><br>")
+
+        const arr = [4, 9, 2, 15, 7];
+        let max = Math.max(...arr);
+        let min = Math.min(...arr);
+
+        document.write("<b>Array = </b>[" + arr + "]<br>")
+        document.write("<b>Max = " + max +"<br>");
+        document.write("Min = " + min + "</b>");
+
+        const arr2 = [1, 2, 3, 4, 5];
+        const demo = arr2.map(n => n * n);
+
+        document.write("<br><br><b>Array = </b>[" + arr2 + "]<br>")
+        document.write("<b>After map (square) = </b>[" + demo + "]<br>")
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium</title>
+</head>
+<body>
+    <script>
+        
+    document.write("<h2>Task 4</h2>")
+        const ages = [12, 25, 17, 30, 18];
+        const adult = ages.filter( a => a >= 18);
+        document.write(adult);
+
+
+    document.write("<h2>Task 5</h2>")
+        let str = "Hello";
+        let rev = "";
+
+        for(let i=0; i<str.length; i++)
+        {
+            rev += str[str.length - i - parseInt(1)];
+        }
+        document.write(rev)
+
+
+    document.write("<h2>Task 6</h2>")
+        function checkPalindrom(name)
+        {
+            let rev = "";
+            for(let i=0; i<name.length; i++)
+            {
+                rev += name[name.length - i - parseInt(1)];
+            }
+            if(rev == name)
+            {
+                document.write("True");
+            }
+            else
+            {
+                document.write("False");
+            }
+        }
+
+        checkPalindrom("madam");
+        checkPalindrom("level");
+        checkPalindrom("car");
+
+    </script>
+</body>
+</html>
