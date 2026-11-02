@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Task 1</h1>
+    <h2 id="h1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid, molestias!</h2>
+    <button id="btn">Click</button>
+
+    <h1>Task 2</h1>
+    <input type="text" placeholder="Enter ur name..." id="input">
+    <p id="greet"></p>
+    <button id="btn2">Click</button>
+
+    <h1>Task 3</h1>
+    <p id="count"></p>
+    <button id="add">+</button>
+    <button id="sub">-</button>
+    <button id="reset">0</button>
+
+    <script>
+//task1
+        let btn = document.getElementById("btn");
+        let h1 = document.getElementById("h1");
+
+        btn.addEventListener("click", function(){
+            if(h1.style.color == "")
+            {  
+                h1.style.color = "red";
+            }
+            else if(h1.style.color == "red")
+            {
+                h1.style.color = "blue";
+            }
+            else if(h1.style.color == "blue")
+            {
+                h1.style.color = "green";
+            }
+            else if(h1.style.color == "green")
+            {
+                h1.style.color = "red";
+            }
+        })
+// task2
+        let greet = document.getElementById("greet");
+        let input = document.getElementById("input");
+        let btn2 = document.getElementById("btn2");
+
+        btn2.addEventListener("click", function(){
+            greet.textContent = "Hello " + input.value;
+        })
+
+// task3
+        let count = document.getElementById("count");
+        let add = document.getElementById("add");
+        let sub = document.getElementById("sub");
+        let reset = document.getElementById("reset");
+        let c = 0;
+
+        count.innerHTML = c;
+        
+        function update()
+        {
+            count.innerHTML = c;
+        }
+
+        add.addEventListener("click", function(){
+            c++;
+            update();
+        })
+        sub.addEventListener("click", function(){
+            if(c > 0)
+            {
+                c--;
+                update();
+            }
+        })
+        reset.addEventListener("click", function(){
+            c = 0;
+            update();
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>Task 8</h1>
+
+    <input type="text" placeholder="Enter task" id="task">
+    <button id="add">Add</button>
+
+    <br><br>
+
+    <button id="all">All</button>
+    <button id="done">Done</button>
+    <button id="pending">Pending</button>
+
+    <ul id="list"></ul>
+
+    <script>
+
+        let task = document.getElementById("task");
+        let add = document.getElementById("add");
+        let list = document.getElementById("list");
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+        add.addEventListener("click", function () {
+            if (task.value == "") {
+                return;
+            }
+
+            tasks.push({
+                text: task.value,
+                done: false
+            });
+
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            task.value = "";
+            showTasks("all");
+        });
+
+
+        function showTasks(filter) {
+            list.innerHTML = "";
+
+            for (let i = 0; i < tasks.length; i++) {
+                if (filter == "done" && tasks[i].done == false) {
+                    continue;
+                }
+
+                if (filter == "pending" && tasks[i].done == true) {
+                    continue;
+                }
+
+                let li = document.createElement("li");
+                li.innerText = tasks[i].text;
+
+                if (tasks[i].done == true) {
+                    li.style.textDecoration = "line-through";
+                }
+
+                li.addEventListener("click", function () {
+                    tasks[i].done = !tasks[i].done;
+                    localStorage.setItem("tasks", JSON.stringify(tasks));
+                    showTasks(filter);
+                });
+
+                let del = document.createElement("button");
+                del.innerText = "Delete";
+                del.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    tasks.splice(i, 1);
+                    localStorage.setItem("tasks", JSON.stringify(tasks));
+                    showTasks(filter);
+                });
+
+                li.appendChild(del);
+                list.appendChild(li);
+            }
+        }
+
+
+        document.getElementById("all").addEventListener("click", function () {
+            showTasks("all");
+        });
+
+        document.getElementById("done").addEventListener("click", function () {
+            showTasks("done");
+        });
+
+        document.getElementById("pending").addEventListener("click", function () {
+            showTasks("pending");
+        });
+
+        showTasks("all");
+
+    </script>
+
+</body>
+
+</html>

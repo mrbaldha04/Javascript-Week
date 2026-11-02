@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium</title>
+    <style>
+        .done
+        {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body id="body">
+
+    <h1>Task 4</h1>
+    <form id="form">
+        <input type="text" placeholder="Name" id="name">
+        <input type="email" placeholder="Email" id="email">
+        <input type="password" placeholder="Password" id="pass">
+        <p id="error"></p>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <h1>Task 5</h1>
+    <button id="dark" style="background-color: yellow; padding: 10px 20px;"><b>Dark</b></button>
+
+    <h1>Task 6 & 7</h1>
+    <input type="text" placeholder="Enter a task" id="task" >
+    <button id="add">Add</button>
+    <ul id="list"></ul>
+
+    <script>    
+
+// task4
+        let submit = document.getElementById("submit");
+        let name = document.getElementById("name");
+        let email = document.getElementById("email");
+        let pass = document.getElementById("pass");
+        let error = document.getElementById("error");
+
+        submit.addEventListener("click", function(e){
+            e.preventDefault();
+            if(name.value == "")
+            {
+                error.innerHTML= "Enter Name";
+                error.style.color = "red";
+            }
+            else if(!email.value.includes("@"))
+            {
+                error.innerHTML= "Enter Email correctly";
+                error.style.color = "red";
+            }
+            else if(pass.value.length < 6)
+            {
+                error.innerHTML= "Enter atleast 6 digit pass";
+                error.style.color = "red";
+            }
+            else
+            {
+                error.innerHTML = "Form Submitted Successfully!";
+                error.style.color = "green";
+                name.value = "";
+                email.value = "";
+                pass.value = "";
+            }
+        })
+
+// task5
+        let body = document.getElementById("body");
+        let dark = document.getElementById("dark");
+        let bg = localStorage.getItem("dark") || "white";
+
+        body.style.backgroundColor = bg;
+
+        dark.addEventListener("click", function(){
+        
+            if(bg == "white")
+            {
+                bg = "black";
+            }
+            else
+            {
+                bg = "white";
+            }
+
+            body.style.backgroundColor = bg;
+            localStorage.setItem("dark", bg);
+        })
+        
+
+// task 6 and task 7
+        let task = document.getElementById("task");
+        let add = document.getElementById("add");
+        let list = document.getElementById("list");
+
+        add.addEventListener("click", function(){
+
+            if(task.value.trim() == "")
+            {
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerHTML = task.value;
+
+            li.addEventListener("click", function(){
+                li.classList.toggle("done");
+            })
+
+            let del = document.createElement("button");
+            del.innerHTML = "Delete";
+            del.addEventListener("click", function(){
+                li.remove();
+            });
+
+            li.appendChild(del);
+            list.appendChild(li);
+
+            task.value = "";
+        });
+
+
+    </script>
+</body>
+</html>
