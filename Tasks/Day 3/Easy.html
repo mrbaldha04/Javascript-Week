@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    console.log("<h2>Task 1</h2>");
+        const product = {
+            name : "Phone",
+            price : 10000,
+            stock : 100
+        }
+
+        product.price = 20000;
+        product.brand = "Xiaomi";
+
+        console.log(product);
+            
+
+    console.log("<h2>Task 2</h2>");
+        const me = {
+            name : "Dhruv Baldha",
+            age : 20,
+            hobbies : ["Coding", "Sports", "Running"],
+            address : {house : 43, street : "2nd", road : "Mota Varachha"}
+        }
+
+        const { name, age, hobbies, address } = me;
+        console.log(name, age, hobbies, address);
+
+        
+    console.log("<h2>Task 3</h2>");
+        const obj1 = {
+            a : 1,
+            b : 2
+        }
+        const obj2 = {
+            c : 3,
+            d : 4
+        }
+        const obj = {...obj1, ...obj2};
+        console.log(obj);
+
+
+    </script>
+</body>
+</html>

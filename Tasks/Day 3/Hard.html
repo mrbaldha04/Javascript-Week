@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hard</title>
+</head>
+<body>
+    <script>
+        
+        const employees = [
+            { name: "A", salary: 30000 },
+            { name: "B", salary: 50000 },
+            { name: "C", salary: 40000 }
+        ];
+
+    console.log("<h2>Task 7</h2>");
+        for(let i=0; i<employees.length; i++)
+        {
+            for(let j=i+1; j<employees.length; j++)
+            {
+                if(employees[i].salary < employees[j].salary)
+                {
+                    let temp = employees[i];
+                    employees[i] = employees[j];
+                    employees[j] = temp;
+                }
+            }
+        }
+        console.log(employees)
+        
+        const t = employees.reduce((sum, t) => sum + t.salary, 0);
+        console.log("Sum of Slary = " + t);
+        
+    console.log("<h2>Task 8</h2>");
+    
+
+
+    </script>
+</body>
+</html>

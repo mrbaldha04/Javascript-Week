@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium</title>
+</head>
+<body>
+    <script>    
+    console.log("<h2>Task 4</h2>");
+       const users = [
+            { name: "Ravi", age: 22, city: "Surat" },
+            { name: "Meera", age: 25, city: "Mumbai" },
+            { name: "Amit", age: 19, city: "Surat" },
+            { name: "Neha", age: 28, city: "Pune" }
+        ];
+
+        const n = users.map(n => n.name);
+        console.log(n);
+
+        const s = users.filter(s => s.city == "Surat");
+        console.log(s);
+
+
+
+    console.log("<h2>Task 5</h2>");
+        const text = JSON.stringify(users);
+        console.log(text);
+
+        const obj = JSON.parse(text);
+        console.log(obj);
+ 
+
+        
+    console.log("<h2>Task 6</h2>");
+        let youngest = users[0].age;
+
+        for(let i=0; i<users.length; i++)
+        {
+            if(users[i].age < youngest)
+            {
+                youngest = users[i].age;
+            }
+        }
+
+        console.log(youngest);
+        
+
+
+    </script>
+</body>
+</html>
