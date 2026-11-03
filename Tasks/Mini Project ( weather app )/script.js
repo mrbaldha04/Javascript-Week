@@ -25,7 +25,7 @@ async function weather(city) {
             throw new Error("City not found");
         }
 
-
+        
         let cityName = data.results[0].name;
         let latitude = data.results[0].latitude;
         let longitude = data.results[0].longitude;
