@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-gray-500">
+    <header class="w-full bg-white drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]">
+        <div class="max-w-7xl mx-auto flex justify-between items-center drop-shadow-[0_0_15px_rgba(249,115,22,0.3)]">
+            <img src="images/logo.jpg" alt="" class="bg-red-500 w-30 h-20">
+            <div class="nav font-bold lg:text-lg md:text-md text-sm">
+                <a href="#">Home</a>
+                <a href="#" class="px-2">About</a>
+                <a href="#">Details</a>
+                <a href="#" class="px-2">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex min-h-[89vh] items-center justify-center sm:px-8 px-4 py-10 ">
+    <section class="w-full max-w-xl rounded-3xl border border-orange-200 p-5 shadow-2xl">
+
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold sm:text-4xl">
+                Weather App
+            </h1>
+            <p class="mt-2 text-sm text-blue-100 sm:text-base">
+                Find the weather in your favorite city
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-3 sm:flex-row">
+            <input type="text" id="input" placeholder="Enter city name..." class="w-full min-w-0 rounded-xl border border-white bg-white px-4 py-3 text-base outline-none focus:ring-3 focus:ring-orange-300">
+
+            <button id="searchBtn" class="rounded-xl bg-orange-500 px-6 py-3 font-bold text-white hover:bg-orange-600 sm:w-auto"> Search </button>
+        </div>
+
+        <p id="display" class="mt-4 text-center font-semibold"></p>
+        <ul id="list" class="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2"></ul>
+        <div class="mt-8 border-t border-white pt-6">
+            <h2 class="mb-4 text-lg font-bold sm:text-xl">
+                Last 5 Searches
+            </h2>
+            <ul id="historyList"></ul>
+        </div>
+
+    </section>
+</main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
