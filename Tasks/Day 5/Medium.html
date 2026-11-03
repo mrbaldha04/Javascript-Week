@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium</title>
+</head>
+<body>
+
+    <h1>Task 4</h1>
+    <p id="display2"></p>
+    <ul id="postList"></ul>
+
+    <h1>Task 5</h1>
+    <input type="text" id="search">
+    <p id="display"></p>
+    <ul id="userList"></ul>
+
+    <h1>Task 6</h1>
+    <button id="btn">Get a new Joke</button>
+    <p id="setup"></p>
+    <p id="punchline"></p>
+
+    <script>    
+
+// task4
+        let display2 = document.getElementById("display2");
+        let postList = document.getElementById("postList");
+
+        async function postData()
+        {
+            display2.innerHTML = "Loading...";
+            
+            try
+            {
+                let api2 = await fetch("https://jsonplaceholder.typicode.com/posts/fake");
+                if(!api2.ok)
+                {
+                    throw new Error("wrong api eneterd, remove fake from last side in api");
+                }
+                let allData = await api2.json();
+                
+                display2.innerHTML = "";
+
+                let posts = allData.slice(0, 10);
+                posts.forEach(function(post)
+                {
+                    let li = document.createElement("li");
+                    li.innerHTML = post.title;
+                    postList.appendChild(li);
+                });
+            }
+            catch(error)
+            {
+                display2.innerHTML = "Error = " + error.message;
+            }
+        }
+
+        postData();
+
+// task5
+
+        let search = document.getElementById("search");
+        let display = document.getElementById("display");
+        let userList = document.getElementById("userList");
+
+        let arr = [];
+
+        async function Data()
+        {
+            display.innerHTML = "Loading ...";
+            try
+            {
+                let api = await fetch("https://jsonplaceholder.typicode.com/users");
+                let data = await api.json();
+
+                display.innerHTML = "";
+                arr = data;
+
+                allData(arr);
+            }
+            catch(error)
+            {
+                display.innerHTML = "Error = " + error.message;
+            }
+        }
+
+        function allData(data)
+        {
+            userList.innerHTML = "";
+            data.forEach(function(user)
+            {
+                let li = document.createElement("li");
+                li.innerHTML = user.name;
+                userList.appendChild(li);
+            });
+        }
+
+        search.addEventListener("input", function()
+        {
+            let input = search.value.toLowerCase();
+            let output = arr.filter(i => i.name.toLowerCase().includes(input));
+            allData(output);
+        });
+
+        Data();
+
+
+// task6
+
+        let btn = document.getElementById("btn");
+        let setup = document.getElementById("setup");
+        let punchline = document.getElementById("punchline");
+
+        async function joke()
+        {
+            setup.innerHTML = "Setup Loading...";
+            punchline.innerHTML = "Punchline Loading...";
+
+            try
+            {
+                let api = await fetch ("https://official-joke-api.appspot.com/random_joke");
+                let jokes = await api.json();
+
+                // jokes.forEach(function(joke)
+                // {
+                //     setup.innerHTML = joke.setup;
+                //     punchline.innerHTML = joke.punchline;
+                // });
+
+                setup.innerHTML = jokes.setup;
+                punchline.innerHTML = jokes.punchline;
+
+            }
+            catch(error)
+            {
+                setup.innerHTML = "Error = " + error.message;  
+            }
+        }
+
+        btn.addEventListener("click", function(){
+            joke();
+        })
+
+        
+
+
+    </script>
+</body>
+</html>

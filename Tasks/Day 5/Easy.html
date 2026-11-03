@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Task 1</h1>
+    <p id="time"></p>
+
+    <h1>Task 2</h1>
+    <p id="display"></p>
+    <ul id="userList"></ul>
+
+    <h1>Task 3</h1>
+    <p id="display2"></p>
+    <ul id="postList"></ul>
+
+    <script>
+
+// task1
+        let time = document.getElementById("time");
+        time.innerHTML = "Loading...";
+
+        setTimeout(function(){
+            time.innerHTML = "<h2>Welcome<h2>";
+        },3000);
+
+
+// task2
+        let display = document.getElementById("display");
+        let userList = document.getElementById("userList");
+        async function data()
+        {
+            display.innerHTML = "Loading..."
+            try
+            {       
+                let api = await fetch("https://jsonplaceholder.typicode.com/users");
+                let names = await api.json();
+
+                display.innerHTML = "";
+                names.forEach(function(name)
+                {
+                    let li = document.createElement("li");
+                    li.innerHTML = name.name;
+                    userList.appendChild(li);
+                });                
+            }
+            catch(error)
+            {
+                display.innerHTML = "Error = " + error.message;
+            }
+        }
+
+        data();
+
+
+// task3
+
+        let display2 = document.getElementById("display2");
+        let postList = document.getElementById("postList");
+
+        async function postData()
+        {
+            display2.innerHTML = "Loading...";
+            
+            try
+            {
+                let api2 = await fetch("https://jsonplaceholder.typicode.com/posts");
+                let allData = await api2.json();
+                
+                display2.innerHTML = "";
+
+                let posts = allData.slice(0, 10);
+                posts.forEach(function(post)
+                {
+                    let li = document.createElement("li");
+                    li.innerHTML = post.title;
+                    postList.appendChild(li);
+                });
+            }
+            catch(error)
+            {
+                display2.innerHTML = "Error = " + error.message;
+            }
+        }
+
+        postData();
+
+
+
+    </script>
+</body>
+</html>
