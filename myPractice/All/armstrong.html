@@ -1,0 +1,46 @@
+<script>
+
+let sum;
+let digit;
+let copy;
+let temp;
+let a = 1;
+
+let z = prompt("Enter z = ",0);
+
+for(i=1;i<z;i++)
+{
+	copy=i;
+	temp=i;
+	digit=0;
+	sum = 0;
+
+// digit count
+
+	while(temp>0)
+	{
+		digit++;
+		temp = Math.floor(temp/10);
+	}
+
+// logic
+
+	while(copy>0)
+	{
+		let L = copy%10;
+		for(let j=0; j<digit; j++)
+		{
+			a = L*a;
+		}
+		// sum=sum+Math.pow(L,digit);
+		sum = sum + a;
+		a = 1;
+		copy=Math.floor(copy/10);
+	}
+	if(sum == i)
+	{
+		document.write("<br>"+i);
+	}
+}
+
+</script>

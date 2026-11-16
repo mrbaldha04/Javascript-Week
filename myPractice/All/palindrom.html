@@ -1,0 +1,56 @@
+<!-- user eneter number check palindrom or not -->
+
+<script>
+
+var n = prompt("Enter a number to check Palindrom or not = ",0);
+var copy = n;
+var L;
+var rev = 0;
+
+document.write("<br>Number = "+n);
+
+while(copy>0)
+{
+	L = copy%10;
+	rev = (rev*10) + L; 
+	copy = Math.floor(copy/10);
+}
+
+document.write("<br>Reverse = "+rev);
+
+if(n==rev)
+{
+	document.write("<br>"+n+" is a Palindrom number");
+}
+else
+{
+	document.write("<br>"+n+" is not a Palindrom number");
+}
+
+</script>
+
+
+<!-- 1 to 1000 Palindrom -->
+<!-- <script>
+
+var L;
+var rev = 0;
+var copy; 
+
+for(var i=1; i<=1000; i++)
+{
+	copy = i;
+	while(copy>0)
+	{
+		L = copy%10;
+		rev = (rev*10) + L;
+		copy = Math.floor(copy/10);
+	}
+	if(i==rev)
+	{
+		document.write("<br>"+i);
+	}
+	rev = 0;
+} -->
+
+</script>

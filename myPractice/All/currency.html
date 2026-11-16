@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="number" placeholder="Write Amount..." id="input" oninput="logic()">
+
+    <div id="output"></div>
+
+
+    <script>
+
+        function logic() {
+
+            var money = document.getElementById("input").value;
+            var copy = money;
+
+            var n500 = 0, n200 = 0, n100 = 0;
+            var n50 = 0, n20 = 0, n10 = 0;
+            var c5 = 0, c2 = 0, c1 = 0;
+
+            var result = "";
+
+            if (money === "") {
+                document.getElementById("output").innerHTML = "";
+                return;
+            }
+
+            if (money >= 500) {
+                if (money / 500 != 0) {
+                    var n500 = Math.floor(money / 500)
+                    money = money - (500 * n500);
+                }
+            }
+
+            if (money >= 200) {
+                if (money / 200 != 0) {
+                    var n200 = Math.floor(money / 200);
+                    money = money - (200 * n200)
+                }
+            }
+
+            if (money >= 100) {
+                if (money / 100 != 0) {
+                    var n100 = Math.floor(money / 100);
+                    money = money - (100 * n100)
+                }
+            }
+
+            if (money >= 50) {
+                if (money / 50 != 0) {
+                    var n50 = Math.floor(money / 50);
+                    money = money - (50 * n50)
+                }
+            }
+
+            if (money >= 20) {
+                if (money / 20 != 0) {
+                    var n20 = Math.floor(money / 20);
+                    money = money - (20 * n20)
+                }
+            }
+
+            if (money >= 10) {
+                if (money / 10 != 0) {
+                    var n10 = Math.floor(money / 10);
+                    money = money - (10 * n10)
+                }
+            }
+
+            if (money >= 5) {
+                if (money / 5 != 0) {
+                    var c5 = Math.floor(money / 5);
+                    money = money - (5 * c5)
+                }
+            }
+
+            if (money >= 2) {
+                if (money / 2 != 0) {
+                    var c2 = Math.floor(money / 2);
+                    money = money - (2 * c2)
+                }
+            }
+
+            if (money >= 1) {
+                if (money / 1 != 0) {
+                    var c1 = Math.floor(money / 1);
+                    money = money - (1 * c1)
+                }
+            }
+
+            if (n500 > 0) {
+                result += "500 x " + n500 + "=" + 500 * n500;
+            }
+            if (n200 > 0) {
+                result += "<br>200 x " + n200 + "=" + 200 * n200;
+            }
+            if (n100 > 0) {
+                result += "<br>100 x " + n100 + "=" + 100 * n100;
+            }
+            if (n50 > 0) {
+                result += "<br>50 x " + n50 + "=" + 50 * n50;
+            }
+            if (n20 > 0) {
+                result += "<br>20 x " + n20 + "=" + 20 * n20;
+            }
+            if (n10 > 0) {
+                result += "<br>10 x " + n10 + "=" + 10 * n10;
+            }
+            if (c5 > 0) {
+                result += "<br>5 x " + c5 + "=" + 5 * c5;
+            }
+            if (c2 > 0) {
+                result += "<br>2 x " + c2 + "=" + 2 * c2;
+            }
+            if (c1 > 0) {
+                result += "<br>1 x " + c1 + "=" + 1 * c1;
+            }
+
+            result += "<br>________________";
+            result += "<br><b>Total = " + copy + "</b>";
+
+            document.getElementById("output").innerHTML = result;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
