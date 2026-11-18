@@ -1,0 +1,77 @@
+<!-- 1
+212
+32123
+4321234
+543212345
+65432123456
+7654321234567
+876543212345678
+7654321234567
+65432123456
+543212345
+4321234
+32123
+212
+1
+
+var row = "";
+
+for(var i=0; i<8; i++)
+{
+    for(var j=i+1; j>0; j--)
+    {
+        row += j;
+    }
+    for(var j=2; j<=i+1; j++)
+    {
+            row +=j;
+    }
+    console.log(row);
+    row = "";
+}
+
+for(var i=0; i<7; i++)
+{
+    for(var j=7-i; j>0; j--)
+    {
+        row += j;
+    }
+    for(var j=2; j<=7-i; j++)
+    {
+        row += j;
+    }
+    console.log(row);
+    row = "";
+}
+
+
+
+
+1
+2  2
+3  4  3
+4  5  6  4
+5  6  7  8  5
+6  7  8  9  10  6
+7  8  9  10  11  12  7
+ -->
+
+<script>
+    
+for(var i = 1; i <= 7; i++)
+{
+    for(var j = 1; j <= i; j++)
+    {
+        if(j == i)
+        {
+            document.write(i);
+        }
+        else
+        {
+            document.write(i + j - 1 + "&nbsp;&nbsp;");
+        }
+    }
+    document.write("<br>");
+}
+
+</script>
